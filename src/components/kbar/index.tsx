@@ -12,6 +12,13 @@ import { useMemo } from 'react';
 import RenderResults from './render-result';
 import useThemeSwitching from './use-theme-switching';
 
+interface NavItem {
+  title: string;
+  url: string;
+  shortcut?: string[];
+  items?: NavItem[];
+}
+
 export default function KBar({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
@@ -19,37 +26,26 @@ export default function KBar({ children }: { children: React.ReactNode }) {
     router.push(url);
   };
 
-  // These action are for the navigation
+  const createAction = (navItem: NavItem) => {
+    return {
+      id: `${navItem.title.toLowerCase()}Action`,
+      name: navItem.title,
+      shortcut: navItem.shortcut,
+      keywords: navItem.title.toLowerCase(),
+      section: 'Navigation',
+      subtitle: `Go to ${navItem.title}`,
+      perform: () => navigateTo(navItem.url)
+    };
+  };
+
   const actions = useMemo(
     () =>
       navItems.flatMap((navItem) => {
-        // Only include base action if the navItem has a real URL and is not just a container
-        const baseAction =
-          navItem.url !== '#'
-            ? {
-                id: `${navItem.title.toLowerCase()}Action`,
-                name: navItem.title,
-                shortcut: navItem.shortcut,
-                keywords: navItem.title.toLowerCase(),
-                section: 'Navigation',
-                subtitle: `Go to ${navItem.title}`,
-                perform: () => navigateTo(navItem.url)
-              }
-            : null;
+        const baseAction = navItem.url !== '#' ? createAction(navItem) : null;
 
-        // Map child items into actions
         const childActions =
-          navItem.items?.map((childItem) => ({
-            id: `${childItem.title.toLowerCase()}Action`,
-            name: childItem.title,
-            shortcut: childItem.shortcut,
-            keywords: childItem.title.toLowerCase(),
-            section: navItem.title,
-            subtitle: `Go to ${childItem.title}`,
-            perform: () => navigateTo(childItem.url)
-          })) ?? [];
+          navItem.items?.map((childItem) => createAction(childItem)) ?? [];
 
-        // Return only valid actions (ignoring null base actions for containers)
         return baseAction ? [baseAction, ...childActions] : childActions;
       }),
     []

@@ -104,27 +104,25 @@ export default function AppSidebar() {
     });
   };
 
-  // Enhanced keyboard navigation handler
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    // Sidebar toggle
+  const handleSidebarToggle = (e: KeyboardEvent) => {
     if (e.altKey && e.key === 'n') {
       e.preventDefault();
       sidebar.toggleSidebar();
-      return;
     }
+  };
 
-    // Quick section navigation with Alt + number
+  const handleQuickSectionNavigation = (e: KeyboardEvent) => {
     if (e.altKey && /^[1-9]$/.test(e.key)) {
       e.preventDefault();
       const index = parseInt(e.key) - 1;
       const sections = [...rugRoomItems, ...navItems, ...cryptoItems];
       if (sections[index]) {
         router.push(sections[index].url);
-        return;
       }
     }
+  };
 
-    // Section navigation with arrow keys
+  const handleArrowNavigation = (e: KeyboardEvent) => {
     if (e.target instanceof HTMLElement && e.target.closest('[role="navigation"]')) {
       const currentSection = e.target.closest('[role="region"]')?.getAttribute('aria-label');
       if (!currentSection) return;
@@ -152,6 +150,12 @@ export default function AppSidebar() {
           break;
       }
     }
+  };
+
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    handleSidebarToggle(e);
+    handleQuickSectionNavigation(e);
+    handleArrowNavigation(e);
   }, [sidebar, router, openSections]);
 
   // Set up keyboard listeners
