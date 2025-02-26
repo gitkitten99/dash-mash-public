@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 66% 99%;
+    --foreground: 20 51% 4%;
+    --muted: 20 25% 86%;
+    --muted-foreground: 20 7% 25%;
+    --popover: 20 66% 98%;
+    --popover-foreground: 20 51% 3%;
+    --card: 20 66% 98%;
+    --card-foreground: 20 51% 3%;
+    --border: 20 15% 94%;
+    --input: 20 15% 94%;
+    --primary: 248 25% 84%;
+    --primary-foreground: 20 48% 12%;
+    --secondary: 20 12% 92%;
+    --secondary-foreground: 20 12% 32%;
+    --accent: 20 12% 92%;
+    --accent-foreground: 20 12% 32%;
+    --destructive: 11 80% 22%;
+    --destructive-foreground: 11 80% 82%;
+    --ring: 248 25% 84%;
+    --radius: 0.5rem;
+    --chart-1: 248 25% 84%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --sidebar-background: 20 66% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 20 25% 86%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 253 43% 3%;
+    --foreground: 253 31% 98%;
+    --muted: 253 7% 13%;
+    --muted-foreground: 253 13% 63%;
+    --popover: 253 43% 3%;
+    --popover-foreground: 253 31% 98%;
+    --card: 253 43% 4%;
+    --card-foreground: 253 31% 99%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --primary: 253 91% 58%;
+    --primary-foreground: 253 91% 98%;
+    --secondary: 253 7% 9%;
+    --secondary-foreground: 253 7% 69%;
+    --accent: 253 13% 14%;
+    --accent-foreground: 253 13% 74%;
+    --destructive: 339.2 90.36% 51.18%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 253 91% 58%;
+    --chart-1: 253 91% 58%;
+    --chart-2: 253 13% 74%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 253 43% 4%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 253 91% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 253 91% 58%%;
+  }
+
+  /* Base Typography */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  /* Headings */
+  h1 {
+    @apply text-4xl font-extrabold tracking-tight lg:text-5xl mb-rhythm-8;
+  }
+
+  h2 {
+    @apply text-3xl font-bold tracking-tight lg:text-4xl mb-rhythm-6;
+  }
+
+  h3 {
+    @apply text-2xl font-bold tracking-tight lg:text-3xl mb-rhythm-4;
+  }
+
+  h4 {
+    @apply text-xl font-semibold tracking-tight lg:text-2xl mb-rhythm-4;
+  }
+
+  h5 {
+    @apply text-lg font-semibold tracking-tight lg:text-xl mb-rhythm-3;
+  }
+
+  h6 {
+    @apply text-base font-semibold tracking-tight lg:text-lg mb-rhythm-2;
+  }
+
+  /* Paragraphs and lists */
+  p, ul, ol {
+    @apply text-base leading-7 lg:text-lg lg:leading-8 mb-rhythm-4;
+  }
+
+  ul, ol {
+    @apply pl-rhythm-4;
+  }
+
+  li {
+    @apply mb-rhythm-2;
+  }
+
+  /* Small text */
+  small {
+    @apply text-sm leading-6 lg:text-base;
+  }
+
+  /* Links */
+  a {
+    @apply text-primary hover:text-primary/80 underline-offset-4;
+  }
+}
+
+@layer components {
+  /* Article content */
+  .prose-custom {
+    @apply prose prose-zinc dark:prose-invert lg:prose-lg max-w-none;
+    @apply prose-headings:font-bold prose-headings:tracking-tight;
+    @apply prose-p:text-base prose-p:leading-7 lg:prose-p:text-lg lg:prose-p:leading-8;
+    @apply prose-li:text-base prose-li:leading-7 lg:prose-li:text-lg lg:prose-li:leading-8;
+    @apply prose-code:text-sm prose-code:leading-6 lg:prose-code:text-base;
+  }
+
+  /* Sidebar Navigation */
+  .sidebar-menu-item {
+    @apply text-[0.925rem] font-medium tracking-normal;
+    @apply text-sidebar-foreground/90 dark:text-sidebar-foreground/90;
+  }
+}
+
+/* Refined shadow utilities for better layering */
+@layer utilities {
+  .shadow-card-dark {
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.2),
+      0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .shadow-elevation-dark {
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.2),
+      0 5px 15px rgba(0, 0, 0, 0.4);
+  }
+
+  /* New utility for subtle hover states */
+  .hover-elevation-dark {
+    transition: background-color 0.2s ease;
+  }
+  .hover-elevation-dark:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  .min-h-screen {
+    min-height: 100vh; /* Fallback */
+    min-height: 100dvh;
+  }
+  .h-screen {
+    height: 100vh; /* Fallback */
+    height: 100dvh;
+  }
+}

@@ -1,0 +1,26 @@
+.custom-scroll-area {
+  max-height: 200px; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #4a90e2 #f1f1f1; /* For Firefox */
+}
+
+.custom-scroll-area::-webkit-scrollbar {
+  width: 12px; /* Increased width of the scrollbar */
+}
+
+.custom-scroll-area::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+.custom-scroll-area::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4a90e2, #007aff); /* Gradient color for the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.custom-scroll-area::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #007aff, #005bb5); /* Darker gradient on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+} 
