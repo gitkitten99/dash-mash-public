@@ -19,7 +19,7 @@ export default function Loading() {
       <div className="space-y-6">
         <div className="grid w-full grid-cols-3 gap-2">
           {Array.from({ length: 3 }).map((_, i) => (
-            <SkeletonLoader key={i} variant="text" className="h-10" />
+            <SkeletonLoader key={`ai-loader-${i}`} variant="text" className="h-10" />
           ))}
         </div>
 
