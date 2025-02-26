@@ -75,15 +75,15 @@ function createParser(onParse: (event: ParsedEvent | ReconnectInterval) => void)
         const trimmed = line.trim();
         if (!trimmed) continue;
         if (trimmed.startsWith(':')) continue;
-        
+
         const colonIndex = trimmed.indexOf(':');
         if (colonIndex === -1) continue;
-        
+
         const type = trimmed.slice(0, colonIndex).trim();
         const data = trimmed.slice(colonIndex + 1).trim();
-        
+
         onParse({ type, data });
       }
     },
   };
-} 
+}

@@ -58,7 +58,8 @@ const recentItems: NavItem[] = [
 
 // Replace favoriteItems with rugRoomItems
 const rugRoomItems: NavItem[] = [
-  { title: 'AI Assistant', url: '/dashboard/ai-assistant', icon: 'ai' }
+  { title: 'AI Assistant', url: '/dashboard/ai-assistant', icon: 'ai' },
+  { title: 'Rugroom Insights', url: '/dashboard/rugroom-insights', icon: 'dashboard' },
 ];
 
 // Crypto Warrior items

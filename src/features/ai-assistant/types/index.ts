@@ -3,8 +3,8 @@ import { Message } from 'ai';
 export interface ChatMessage extends Omit<Message, 'createdAt'> {
   id: string;
   content: string;
-  role: 'user' | 'assistant' | 'system';
-  createdAt: Date;
+  role: 'user' | 'assistant' | 'system' | 'data';
+  createdAt?: Date;
 }
 
 export interface ModelInfo {
