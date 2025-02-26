@@ -70,7 +70,7 @@ function createParser(onParse: (event: ParsedEvent | ReconnectInterval) => void)
     feed(chunk: string) {
       buffer += chunk;
       const lines = buffer.split('\n');
-      buffer = lines.pop() || '';
+      buffer = lines.pop() ?? '';
       for (const line of lines) {
         const trimmed = line.trim();
         if (!trimmed) continue;

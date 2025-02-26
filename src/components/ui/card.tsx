@@ -32,13 +32,21 @@ CardHeader.displayName = 'CardHeader';
 const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn('font-semibold leading-none tracking-tight', className)}
-    {...props}
-  />
-));
+>(({ className, children, ...props }, ref) => {
+  if (!children) {
+    console.warn("CardTitle requires content for accessibility.");
+    return null; // or provide a default message
+  }
+  return (
+    <h3
+      ref={ref}
+      className={cn('font-semibold leading-none tracking-tight', className)}
+      {...props}
+    >
+      {children}
+    </h3>
+  );
+});
 CardTitle.displayName = 'CardTitle';
 
 const CardDescription = React.forwardRef<

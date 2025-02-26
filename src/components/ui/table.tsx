@@ -11,7 +11,18 @@ const Table = React.forwardRef<
       ref={ref}
       className={cn('w-full caption-bottom text-sm', className)}
       {...props}
-    />
+    >
+      <thead>
+        <tr>
+          <th>Header 1</th>
+          <th>Header 2</th>
+          <th>Header 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        {/* Table body rows go here */}
+      </tbody>
+    </table>
   </div>
 ));
 Table.displayName = 'Table';
