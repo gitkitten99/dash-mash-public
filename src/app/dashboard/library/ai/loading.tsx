@@ -26,7 +26,7 @@ export default function Loading() {
         {/* Cards Grid */}
         <div className="grid gap-6 md:grid-cols-2 items-start">
           {Array.from({ length: 2 }).map((_, i) => (
-            <Card key={i} className="p-6 space-y-4">
+            <Card key={`ai-card-${i}`} className="p-6 space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
                   <SkeletonLoader variant="text" className="h-12 w-12 rounded-lg" />
