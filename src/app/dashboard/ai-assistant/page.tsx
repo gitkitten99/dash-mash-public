@@ -20,7 +20,7 @@ const AIAssistantPage = () => {
         setLoading(true);
         // Simulate a network request
         await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate a 2-second delay
-        // Here you would fetch your actual data
+        // here you would fetch your actual data
       } catch (err) {
         setError('Failed to load data. Please try again later.');
       } finally {
