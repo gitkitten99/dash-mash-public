@@ -59,7 +59,7 @@ export function ModelSelector({
             role="combobox"
             aria-expanded={open}
             aria-label="Select a model"
-            className={cn("w-full justify-between")}
+            className={cn("w-full justify-between hover:bg-gray-200 transition-colors")}
           >
             <div className="flex items-center gap-2 truncate">
               <Icons.settings className="h-4 w-4 shrink-0 opacity-50" />
@@ -69,9 +69,9 @@ export function ModelSelector({
             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[300px] p-0">
+        <PopoverContent className="w-[300px] p-0 bg-white shadow-lg rounded-lg">
           <Command>
-            <CommandInput placeholder="Search models..." />
+            <CommandInput placeholder="Search models..." className="border-b-2 border-gray-300" />
             <CommandList>
               <CommandEmpty>No models found.</CommandEmpty>
               <CommandGroup heading="Text Models">
@@ -84,6 +84,7 @@ export function ModelSelector({
                           onModelChange(model.id);
                           setOpen(false);
                         }}
+                        className="hover:bg-gray-100 transition-colors"
                       >
                         <div className="flex flex-col gap-1 w-full">
                           <div className="flex items-center justify-between">
@@ -146,6 +147,7 @@ export function ModelSelector({
                       onModelChange(model.id);
                       setOpen(false);
                     }}
+                    className="hover:bg-gray-100 transition-colors"
                   >
                     <div className="flex flex-col gap-1 w-full">
                       <div className="flex items-center justify-between">

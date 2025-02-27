@@ -1,7 +1,7 @@
 # Statement of Work (SOW)  
 **Project:** Next.js 14 Dashboard  
 **Date:** February 24, 2024  
-**Version:** 1.1
+**Version:** 1.2
 
 ---
 
@@ -26,21 +26,20 @@ The Next.js 14 Dashboard project is a comprehensive web application that integra
 
 ## 3. Project Structure
 
-```
-src/
-├── app/                    # Next.js 14 App Router pages
-│   ├── dashboard/         # Dashboard routes
-│   ├── api/              # API endpoints
-│   └── layout.tsx        # Root layout
-├── features/             # Core feature modules
-│   ├── ai-showcase/     # AI tools educational content
-│   ├── ai-assistant/    # AI chat functionality
-│   ├── trading/        # Demo trading features
-│   ├── dashboard/      # Core dashboard components
-│   └── shared/        # Shared utilities and types
-├── components/         # Reusable UI components
-├── lib/               # Utility functions
-└── providers/        # Context providers
+```src/
+├── app/ # Next.js 14 App Router pages
+│ ├── dashboard/ # Dashboard routes
+│ ├── api/ # API endpoints
+│ └── layout.tsx # Root layout
+├── features/ # Core feature modules
+│ ├── ai-showcase/ # AI tools educational content
+│ ├── ai-assistant/ # AI chat functionality
+│ ├── trading/ # Demo trading features
+│ ├── dashboard/ # Core dashboard components
+│ └── shared/ # Shared utilities and types
+├── components/ # Reusable UI components
+├── lib/ # Utility functions
+└── providers/ # Context providers
 ```
 
 ## 4. Core Modules

@@ -48,9 +48,12 @@ const Toast = React.forwardRef<
   return (
     <ToastPrimitives.Root
       ref={ref}
-      className={cn(toastVariants({ variant }), className)}
+      className={cn(toastVariants({ variant }), className, "transition-all duration-300")}
       {...props}
-    />
+    >
+      <ToastDescription className="text-sm">{props.children}</ToastDescription>
+      <ToastClose />
+    </ToastPrimitives.Root>
   );
 });
 Toast.displayName = ToastPrimitives.Root.displayName;
