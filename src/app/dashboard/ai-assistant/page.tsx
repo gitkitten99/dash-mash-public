@@ -40,9 +40,9 @@ const AIAssistantPage = () => {
           {loading ? <LoadingIndicator /> : <ChatContainer />}
         </div>
         <div className="flex flex-col md:w-1/3 md:ml-4">
-          <Card className="p-4 mb-4">
-            <h2 className="text-xl font-semibold">Current Model: {currentModel}</h2>
-            <p>Interact with the AI Assistant to get insights and assistance.</p>
+          <Card className="p-4 mb-4 bg-gray-800 text-white rounded-lg shadow-lg">
+            <h2 className="text-2xl font-bold mb-2">Current Model: {currentModel}...</h2>
+            <p className="text-sm text-gray-300">This model is designed to assist you with various tasks. To get the best results, try asking specific questions or providing context for your queries.</p>
           </Card>
           <ModelSelector selectedModel={currentModel} onModelChange={setCurrentModel} className="mb-4" />
         </div>
