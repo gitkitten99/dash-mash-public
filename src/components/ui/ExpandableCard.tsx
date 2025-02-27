@@ -29,11 +29,25 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
     if (isOpen) setIsOpen(false);
   });
 
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLHeadingElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault(); // Prevent scrolling when space is pressed
+      handleToggle();
+    }
+  };
+
   return (
     <div ref={cardRef} className="border rounded-lg shadow-lg overflow-hidden">
       <h2
         className="cursor-pointer text-xl font-bold p-4 bg-gray-800 text-white"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
+        onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={0}
         aria-expanded={isOpen}
         aria-controls={`content-${title.replace(/\s+/g, '-').toLowerCase()}`}
       >
